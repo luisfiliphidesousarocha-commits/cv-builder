@@ -44,20 +44,7 @@ function Page() {
   const doPrint = () => window.print();
 
   const doExportPdf = async () => {
-    const html2pdf = (await import("html2pdf.js")).default;
-    const el = document.getElementById("cv-preview");
-    if (!el) return;
-    const filename = (data.personal.name || "cv").replace(/\s+/g, "_") + ".pdf";
-    html2pdf()
-      .from(el)
-      .set({
-        margin: 0,
-        filename,
-        image: { type: "jpeg", quality: 0.98 },
-        html2canvas: { scale: 2, useCORS: true, backgroundColor: "#ffffff" },
-        jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
-      })
-      .save();
+    window.print();
   };
 
   const doDownloadJson = () => {
